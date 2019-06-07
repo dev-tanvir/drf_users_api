@@ -25,6 +25,7 @@ class UserProfilesManager(BaseUserManager):
     def create_superuser(self, email, name, password):
         """ Creates a new super user profile object. """
 
+        # import pdb;pdb.set_trace()
         user = self.create_user(email, name, password)
         user.is_superuser = True
         user.is_staff = True
@@ -34,13 +35,10 @@ class UserProfilesManager(BaseUserManager):
         return user
 
 
-
-        
-
 class UserProfiles(AbstractBaseUser, PermissionsMixin):
     """ Represents the user profiles in the application. Extension of Django base model."""
 
-    user_email = models.EmailField(max_length=255, unique=True)
+    email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length = 255)
     is_active = models.BooleanField(default=True)   # mandatory field when overwriting default user model of django
     is_staff = models.BooleanField(default=False)   # mandatory field when overwriting default user model of django
