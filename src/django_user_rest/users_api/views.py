@@ -90,9 +90,14 @@ class HelloViewsets(viewsets.ViewSet):
     def update(self, request, pk=None):
         """ Handles update of an object with 'pk' as database id."""
 
-        return Response({'method':'PUT'})
+        return Response({'http_method':'PUT'})
 
     def partial_update(self, request, pk=None):
         """ Handles partial update of an object with 'pk' as database id."""
 
-        return Response({'method':'PATCH'})
+        return Response({'http_method':'PATCH'})
+
+    def destroy(self, request, pk=None):
+        """ Handles deletion of an object with 'pk' as database id."""
+
+        return Response({'http_method':'DELETE'})
