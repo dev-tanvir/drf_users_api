@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from . import serializers
@@ -52,3 +53,19 @@ class HelloAPIView(APIView):
         """ Handles deletion of an object with 'pk' as database id."""
 
         return Response({'method':'DELETE'})
+
+
+class HelloViewsets(viewsets.ViewSet):
+    """ Testing DRF viewsets class."""
+
+    def list(self, request):
+        """ Returns a list of Viewsets features. """
+
+        viewset_features = [
+            'Uses actions as functions(list, retrieve, update, partial update, delete.)'
+            'Automatically maps urls to viewsets using Routers',
+            'Provides more funtionality with less code',
+            'Faster database CRUD operations',
+        ]
+
+        return Response({'message':'Viewsets Features', 'viewset_features': viewset_features})
