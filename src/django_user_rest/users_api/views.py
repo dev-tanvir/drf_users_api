@@ -38,4 +38,7 @@ class HelloAPIView(APIView):
                                                                                     #   even when not valid!!! 
         
 
+    def put(self, request, pk=None):
+        """ Handles update of an object with 'pk' as database id."""
 
+        return Response({'method':'PUT'})
