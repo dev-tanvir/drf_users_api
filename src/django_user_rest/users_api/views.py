@@ -69,3 +69,15 @@ class HelloViewsets(viewsets.ViewSet):
         ]
 
         return Response({'message':'Viewsets Features', 'viewset_features': viewset_features})
+
+    def create(self, request):
+        """ Creates a message with the name that was given./ POST method"""
+
+        serializer = serializers.TestSerializer(data=request.data)
+
+        if serializer.is_valid():
+            name = serializer.data.get('name')
+            message = 'Hello {0}'.format(name)
+            return Response({'message':message})
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
