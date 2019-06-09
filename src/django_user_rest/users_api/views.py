@@ -47,3 +47,8 @@ class HelloAPIView(APIView):
         """ Handles update of only provided fields of an object with 'pk' as database id."""
 
         return Response({'method':'PATCH'})
+
+    def delete(self, request, pk=None):
+        """ Handles deletion of an object with 'pk' as database id."""
+
+        return Response({'method':'DELETE'})
