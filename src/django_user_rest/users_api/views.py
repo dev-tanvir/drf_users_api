@@ -81,3 +81,8 @@ class HelloViewsets(viewsets.ViewSet):
             return Response({'message':message})
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def retrive(self, request, pk=None):
+        """ Handles getting an object with 'pk' as database id."""
+
+        return Response({'http_method':'GET'})
