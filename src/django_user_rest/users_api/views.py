@@ -42,3 +42,8 @@ class HelloAPIView(APIView):
         """ Handles update of an object with 'pk' as database id."""
 
         return Response({'method':'PUT'})
+
+    def patch(self, request, pk=None):
+        """ Handles update of only provided fields of an object with 'pk' as database id."""
+
+        return Response({'method':'PATCH'})
