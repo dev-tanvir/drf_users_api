@@ -91,3 +91,8 @@ class HelloViewsets(viewsets.ViewSet):
         """ Handles update of an object with 'pk' as database id."""
 
         return Response({'method':'PUT'})
+
+    def partial_update(self, request, pk=None):
+        """ Handles partial update of an object with 'pk' as database id."""
+
+        return Response({'method':'PATCH'})
