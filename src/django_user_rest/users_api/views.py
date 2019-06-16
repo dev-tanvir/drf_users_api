@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
+from rest_framework import filters
 from . import serializers
 from . import models
 from . import permissions
@@ -115,3 +116,5 @@ class UserProfileViewset(viewsets.ModelViewSet):
     queryset = models.UserProfiles.objects.all()
     authentication_classes = (TokenAuthentication,)     # the authentication method that will be used
     permission_classes = (permissions.UpdateOwnProfile,)   # the access or permission point of the user
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('email','name',)
