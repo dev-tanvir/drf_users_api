@@ -114,4 +114,4 @@ class UserProfileViewset(viewsets.ModelViewSet):
     # in ModelViewSet , we know the model as it is already added in UserProfileSerializer
     queryset = models.UserProfiles.objects.all()
     authentication_classes = (TokenAuthentication,)     # the authentication method that will be used
-    permissions_classes = (permissions.UpdateOwnProfile,)   # the access or permission point of the user
+    permission_classes = (permissions.UpdateOwnProfile,)   # the access or permission point of the user
