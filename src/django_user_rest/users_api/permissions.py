@@ -9,6 +9,10 @@ class UpdateOwnProfile(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
 
-        print(obj)
-        print(request.user.id)
+        print('obj ======> ',obj.id)
+        print('=============================')
+        print(request.user)
+        print(dir(request))
+        print('=============================')
+        print('req user ====> ',request.user)
         return obj.id == request.user.id
