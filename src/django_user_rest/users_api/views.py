@@ -129,4 +129,6 @@ class LoginViewSet(viewsets.ViewSet):
     def create(self, request):
         """  Use ObtainAuthToken APIView to validate and create a token."""
 
+        return ObtainAuthToken().post(request)
+
 
