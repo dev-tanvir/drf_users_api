@@ -123,6 +123,7 @@ class UserProfileViewset(viewsets.ModelViewSet):
 
 class LoginViewSet(viewsets.ViewSet):
     """ Checks email and password and returns an auth token."""
+
     """ By default, DRF has login APIView but we want viewset. So, here
         we, first take an object of ObtainAuthToken APIView class and pass the request 
         to its post() method as we might have done if we had used APIView itself.
@@ -132,7 +133,7 @@ class LoginViewSet(viewsets.ViewSet):
         Viewsets create() method as normal viewsets are designed to do.
     """
 
-    """ Another interesting tidbit, when we call login api in Browseable API, it shoes http 405 
+    """ Another interesting tidbit, when we call login api in Browsable API, it shoes http 405 
     method not allowed error cause Login api should be only used with HTTP post() method.  
     """
 
