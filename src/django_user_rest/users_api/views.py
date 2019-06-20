@@ -123,6 +123,14 @@ class UserProfileViewset(viewsets.ModelViewSet):
 
 class LoginViewSet(viewsets.ViewSet):
     """ Checks email and password and returns an auth token."""
+    """ By default, DRF has login APIView but we want viewset. So, here
+        we, first take an object of ObtainAuthToken APIView class and pass the request 
+        to its post() method as we might have done if we had used APIView itself.
+
+        As we are tricking it to use in a ViewSet( why? cause we want to use
+        the DefaultRouter() od DRF!!! ), we did the whole process in 
+        Viewsets create() method as normal viewsets are designed to do.
+    """
 
     serializer_class = AuthTokenSerializer
 
