@@ -59,6 +59,19 @@ class UserProfiles(AbstractBaseUser, PermissionsMixin):
         return self.name 
 
     def __str__(self):
-        """ Django uses this when it needs to convert a object to string  """
+        """ Django uses this when it needs to convert a object to string.  """
 
         return self.email
+
+
+class ProfileStatus(models.Model):
+    """ This is to keep data about user profile status updates."""
+
+    user_profile = models.ForeignKey('UserProfiles', on_delete=models.CASCADE)
+    status_text = models.CharField(max_length=255)
+    creation_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        """ Django uses this when it needs to convert a object to string. """
+
+        return self.status_text
