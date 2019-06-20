@@ -72,6 +72,6 @@ class ProfileStatus(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        """ Django uses this when it needs to convert a object to string. """
+        """ Django uses this when it needs to convert this object to string. """
 
         return self.status_text

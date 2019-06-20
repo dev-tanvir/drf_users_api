@@ -30,3 +30,13 @@ class UserProfileSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+
+class ProfileStatusSerializer(serializers.ModelSerializer):
+     """ A serializer for user profile objects. """
+
+    class Meta:
+        model = models.ProfileStatus
+        fields = ('id', 'user_profile', 'status_text', 'creation_date')
+        extra_kwargs = {'user_profile': {'read_only': True}}
+

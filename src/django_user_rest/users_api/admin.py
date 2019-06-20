@@ -3,3 +3,4 @@ from . import models
 
 # Register your models here.
 admin.site.register(models.UserProfiles)
+admin.site.register(models.ProfileStatus)
