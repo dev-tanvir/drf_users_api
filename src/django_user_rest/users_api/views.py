@@ -132,6 +132,10 @@ class LoginViewSet(viewsets.ViewSet):
         Viewsets create() method as normal viewsets are designed to do.
     """
 
+    """ Another interesting tidbit, when we call login api in Browseable API, it shoes http 405 
+    method not allowed error cause Login api should be only used with HTTP post() method.  
+    """
+
     serializer_class = AuthTokenSerializer
 
     def create(self, request):
