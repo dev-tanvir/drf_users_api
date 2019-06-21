@@ -33,8 +33,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class ProfileStatusSerializer(serializers.ModelSerializer):
-     """ A serializer for user profile objects. """
-
+    """ A serializer for user profile objects. """
+    
     class Meta:
         model = models.ProfileStatus
         fields = ('id', 'user_profile', 'status_text', 'creation_date')

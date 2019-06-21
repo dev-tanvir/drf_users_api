@@ -145,3 +145,17 @@ class LoginViewSet(viewsets.ViewSet):
         return ObtainAuthToken().post(request)
 
 
+class ProfileStatusViewset(viewsets.ModelViewSet):
+    """ Handles creating, reading and updating user status. """
+
+    authentication_classes = (TokenAuthentication,)
+    serializer_class = serializers.ProfileStatusSerializer
+    queryset = models.ProfileStatus.objects.all()
+
+    def perform_create(self, serializer):
+        """Set the user_profile to the logged in user."""
+
+        serializer.save(user_profile=self.request.user)
+
+
+
