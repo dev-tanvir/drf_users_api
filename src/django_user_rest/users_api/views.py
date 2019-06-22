@@ -154,7 +154,7 @@ class ProfileStatusViewset(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """Set the user_profile to the logged in user."""
-
+        
         serializer.save(user_profile=self.request.user)
 
 
