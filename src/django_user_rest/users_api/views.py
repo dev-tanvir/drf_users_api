@@ -153,8 +153,8 @@ class ProfileStatusViewset(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     serializer_class = serializers.ProfileStatusSerializer
     queryset = models.ProfileStatus.objects.all()
-    # permissions_classes = (permissions.PostOwnStatus, IsAuthenticatedOrReadOnly)
-    permissions_classes = (permissions.PostOwnStatus, IsAuthenticated)
+    # permission_classes = (permissions.PostOwnStatus, IsAuthenticatedOrReadOnly)
+    permission_classes = (permissions.PostOwnStatus, IsAuthenticated)
 
     def perform_create(self, serializer):
         """Set the user_profile to the logged in user."""
