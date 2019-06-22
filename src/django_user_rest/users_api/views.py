@@ -8,6 +8,7 @@ from rest_framework import filters
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticatedOrReadOnly    # this class is for non-logged user read only
+from rest_framework.permissions import IsAuthenticated  # this class makes sure user is authenticated even for status reading
 from . import serializers
 from . import models
 from . import permissions
@@ -152,7 +153,8 @@ class ProfileStatusViewset(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     serializer_class = serializers.ProfileStatusSerializer
     queryset = models.ProfileStatus.objects.all()
-    permissions_classes = (permissions.PostOwnStatus, IsAuthenticatedOrReadOnly)
+    # permissions_classes = (permissions.PostOwnStatus, IsAuthenticatedOrReadOnly)
+    permissions_classes = (permissions.PostOwnStatus, IsAuthenticated)
 
     def perform_create(self, serializer):
         """Set the user_profile to the logged in user."""
